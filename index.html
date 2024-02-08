@@ -12,15 +12,97 @@
   </head>
   <body>
     <div class="container">
-      <div class="container-background">
+      <div class="wrapper">
+        <div class="background"></div>
         <header class="content-header">
-          <input class="search" type="text" placeholder="Введите город">
-          <button id="burgerBtn" class="burger">
-            <span></span><span></span><span></span>
+          <input class="search" type="text" placeholder="Введите город" />
+          <button
+            id="burgerBtn"
+            class="burger"
+            title="burger-menu"
+            type="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </header>
-        <main></main>
-        <footer></footer>
+        <main>
+          <div class="main-information">
+            <picture class="icon-weather-sity">
+              <img src="./img/sunny.png" alt="icon-weather" />
+            </picture>
+            <time class="time" datetime="13:00">13:00</time>
+            <div class="city-information">
+              <p class="city">Омск</p>
+              <p class="degrees">+23&#176;</p>
+            </div>
+          </div>
+          <div class="more-details">
+            <div class="weather-information">
+              <div>
+                <picture>
+                  <img src="./img/visibility.svg" alt="icon-weather-info" />
+                </picture>
+                <p>Видимость</p>
+                <p>17km</p>
+              </div>
+              <div>
+                <picture>
+                  <img src="./img/humidity.svg" alt="icon-weather-info" />
+                </picture>
+                <p>Влажность</p>
+                <p>78%</p>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="weather-information">
+              <div>
+                <picture>
+                  <img src="./img/wind.svg" alt="icon-weather-info" />
+                </picture>
+                <p>Ветер</p>
+                <p>2km/h</p>
+              </div>
+              <div>
+                <picture>
+                  <img src="./img/UV-index.svg" alt="icon-weather-info" />
+                </picture>
+                <p>Уф-индекс</p>
+                <p>0</p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="forecast-for-next-day">
+            <p>Прогноз на след. дни</p>
+            <div class="line"></div>
+            <div class="next-day-information">
+              <div>
+                <p class="name-day">Понедельник</p>
+                <p>+29&#176;</p>
+                <picture>
+                  <img src="./img/sunny.png" alt="icon-weather" width="44px" />
+                </picture>
+              </div>
+              <div>
+                <p class="name-day">Вторник</p>
+                <p>+29&#176;</p>
+                <picture>
+                  <img src="./img/sunny.png" alt="icon-weather" width="44px" />
+                </picture>
+              </div>
+              <div>
+                <p class="name-day">Среда</p>
+                <p>+29&#176;</p>
+                <picture>
+                  <img src="./img/sunny.png" alt="icon-weather" width="44px" />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   </body>

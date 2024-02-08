@@ -1,9 +1,23 @@
+/* Font */
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url(../font/Gilroy-Regular.woff2);
+}
+@font-face {
+  font-family: Gilroy-Medium;
+  src: url(../font/Gilroy-Medium.woff2);
+}
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url(../font/Gilroy-Bold.woff2);
+}
 /* Container */
 *,
 *::after,
 *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: Gilroy-Regular;
 }
 
 body {
@@ -19,19 +33,91 @@ body {
   background-repeat: no-repeat;
 }
 
-.container-background {
+.background {
   background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 888px;
+  position: absolute;
   opacity: 60%;
 }
 
+.wrapper {
+  position: relative;
+  min-height: 888px;
+  z-index: 9;
+}
+
 /* Header */
+.content-header {
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 15px;
+}
+
 .search {
   width: 310px;
   height: 71px;
   background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  -webkit-backdrop-filter: opacity(20%);
+          backdrop-filter: opacity(20%);
   -webkit-backdrop-filter: blur(7.5px);
           backdrop-filter: blur(7.5px);
   border-radius: 20px;
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.search::-webkit-input-placeholder {
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.search::-moz-placeholder {
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.search:-ms-input-placeholder {
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.search::-ms-input-placeholder {
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.search::placeholder {
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
 }
 
 /* Burger */
@@ -42,15 +128,196 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
+  position: absolute;
+  right: 18px;
   border: none;
   background: none;
+  min-width: 40px;
+  min-height: 30px;
+  padding: 0;
+  cursor: pointer;
 }
 .burger span {
   position: absolute;
-  color: #fff;
-  opacity: 50%;
-  width: 40px;
-  height: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  min-width: 40px;
+  min-height: 6px;
   border-radius: 6px;
+}
+.burger span:nth-child(1) {
+  top: 0;
+}
+.burger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Main */
+.main-information {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  color: #ffffff;
+}
+.main-information picture {
+  z-index: 9;
+}
+.main-information time {
+  font-size: 48px;
+  z-index: 9;
+}
+
+.city-information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 9;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+.city-information .city {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+}
+.city-information .degrees {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+}
+
+.more-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 18px;
+  margin-top: 100px;
+  height: 120px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
+  border-radius: 20px;
+}
+.more-details .line {
+  width: 1px;
+  height: 110px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.weather-information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 30px;
+}
+.weather-information div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+}
+.weather-information div p {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+}
+.weather-information div picture img {
+  width: 16px;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
+  border-radius: 73px 73px 0px 0px;
+  height: 220px;
+  width: 100%;
+}
+
+.forecast-for-next-day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.forecast-for-next-day p {
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  margin: 10px 0;
+  padding: 0;
+}
+.forecast-for-next-day .line {
+  width: 320px;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.next-day-information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+  padding: 10px 0;
+  min-width: 280px;
+  margin: 0 auto;
+}
+.next-day-information div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.next-day-information div p {
+  margin: 0;
+  padding: 0;
+}
+.next-day-information div .name-day {
+  min-width: 150px;
+  text-align: start;
 }
