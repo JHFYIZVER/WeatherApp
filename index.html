@@ -1,4 +1,3 @@
-<!-- 6e1d40cc3a896e82cdbc90ce68419cc6 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +14,13 @@
       <div class="wrapper">
         <div class="background"></div>
         <header class="content-header">
-          <input class="search" type="text" placeholder="Введите город" />
+          <input
+            id="searchCity"
+            name=""
+            class="search"
+            type="text"
+            placeholder="Введите город"
+          />
           <button
             id="burgerBtn"
             class="burger"
@@ -29,13 +34,18 @@
         </header>
         <main>
           <div class="main-information">
-            <picture class="icon-weather-sity">
-              <img src="./img/sunny.png" alt="icon-weather" />
+            <picture id="mainIcon" class="icon-weather-sity">
+              <img
+                src="./img/sunny.svg"
+                alt="icon-weather"
+                width="170px"
+                width="170px"
+              />
             </picture>
-            <time class="time" datetime="13:00">13:00</time>
+            <time id="time" class="time" datetime="13:00">13:00</time>
             <div class="city-information">
-              <p class="city">Омск</p>
-              <p class="degrees">+23&#176;</p>
+              <p id="mainCity" class="city"></p>
+              <p id="mainDeg" class="degrees"></p>
             </div>
           </div>
           <div class="more-details">
@@ -45,14 +55,14 @@
                   <img src="./img/visibility.svg" alt="icon-weather-info" />
                 </picture>
                 <p>Видимость</p>
-                <p>17km</p>
+                <p id="visibilityValue"></p>
               </div>
               <div>
                 <picture>
                   <img src="./img/humidity.svg" alt="icon-weather-info" />
                 </picture>
                 <p>Влажность</p>
-                <p>78%</p>
+                <p id="humidityValue"></p>
               </div>
             </div>
             <div class="line"></div>
@@ -62,14 +72,14 @@
                   <img src="./img/wind.svg" alt="icon-weather-info" />
                 </picture>
                 <p>Ветер</p>
-                <p>2km/h</p>
+                <p id="windValue"></p>
               </div>
               <div>
                 <picture>
                   <img src="./img/UV-index.svg" alt="icon-weather-info" />
                 </picture>
-                <p>Уф-индекс</p>
-                <p>0</p>
+                <p>Давление</p>
+                <p id="pressureValue"></p>
               </div>
             </div>
           </div>
@@ -83,21 +93,21 @@
                 <p class="name-day">Понедельник</p>
                 <p>+29&#176;</p>
                 <picture>
-                  <img src="./img/sunny.png" alt="icon-weather" width="44px" />
+                  <img src="./img/sunny.svg" alt="icon-weather" width="44px" />
                 </picture>
               </div>
               <div>
                 <p class="name-day">Вторник</p>
                 <p>+29&#176;</p>
                 <picture>
-                  <img src="./img/rain.png" alt="icon-weather" width="44px" />
+                  <img src="./img/rain.svg" alt="icon-weather" width="44px" />
                 </picture>
               </div>
               <div>
                 <p class="name-day">Среда</p>
                 <p>+29&#176;</p>
                 <picture>
-                  <img src="./img/sunny.png" alt="icon-weather" width="44px" />
+                  <img src="./img/sunny.svg" alt="icon-weather" width="44px" />
                 </picture>
               </div>
             </div>

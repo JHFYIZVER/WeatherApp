@@ -3,14 +3,6 @@
   font-family: Gilroy-Regular;
   src: url(../font/Gilroy-Regular.woff2);
 }
-@font-face {
-  font-family: Gilroy-Medium;
-  src: url(../font/Gilroy-Medium.woff2);
-}
-@font-face {
-  font-family: Gilroy-Bold;
-  src: url(../font/Gilroy-Bold.woff2);
-}
 /* Container */
 *,
 *::after,

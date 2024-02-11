@@ -5,16 +5,6 @@
   src: url(../font/Gilroy-Regular.woff2);
 }
 
-@font-face {
-  font-family: Gilroy-Medium;
-  src: url(../font/Gilroy-Medium.woff2);
-}
-
-@font-face {
-  font-family: Gilroy-Bold;
-  src: url(../font/Gilroy-Bold.woff2);
-}
-
 /* Container */
 
 *,
@@ -74,7 +64,6 @@ body {
   border-radius: 20px;
   padding: 15px;
   font-size: 20px;
-
   border: none;
   cursor: pointer;
 }
@@ -212,7 +201,6 @@ body {
 .footer {
   position: absolute;
   bottom: 0;
-
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(7.5px);
   border-radius: 73px 73px 0px 0px;
