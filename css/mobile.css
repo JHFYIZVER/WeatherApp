@@ -1,7 +1,7 @@
 /* Font */
 @font-face {
   font-family: Gilroy-Regular;
-  src: url(../font/Gilroy-Regular.woff2);
+  src: url(../font/Gilroy-Regular.woff2) format("woff2");
 }
 /* Container */
 *,
@@ -10,10 +10,6 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: Gilroy-Regular;
-}
-
-body {
-  margin: 0;
 }
 
 .container {
@@ -72,39 +68,33 @@ body {
   border: none;
   cursor: pointer;
 }
-
 .search:focus {
   outline: none;
 }
-
 .search::-webkit-input-placeholder {
   font-size: 24px;
   text-align: center;
   color: #ffffff;
   opacity: 1;
 }
-
 .search::-moz-placeholder {
   font-size: 24px;
   text-align: center;
   color: #ffffff;
   opacity: 1;
 }
-
 .search:-ms-input-placeholder {
   font-size: 24px;
   text-align: center;
   color: #ffffff;
   opacity: 1;
 }
-
 .search::-ms-input-placeholder {
   font-size: 24px;
   text-align: center;
   color: #ffffff;
   opacity: 1;
 }
-
 .search::placeholder {
   font-size: 24px;
   text-align: center;
@@ -242,7 +232,7 @@ body {
   color: #fff;
   font-size: 20px;
 }
-.weather-information div picture img {
+.weather-information div p picture img {
   width: 16px;
 }
 
@@ -290,7 +280,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 10px;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   min-width: 280px;
   margin: 0 auto;
 }

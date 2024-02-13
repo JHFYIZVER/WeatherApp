@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: Gilroy-Regular;
-  src: url(../font/Gilroy-Regular.woff2);
+  src: url(../font/Gilroy-Regular.woff2) format('woff2');
 }
 
 /* Container */
@@ -12,10 +12,6 @@
 *::before {
   box-sizing: border-box;
   font-family: Gilroy-Regular;
-}
-
-body {
-  margin: 0;
 }
 
 .container {
@@ -66,17 +62,17 @@ body {
   font-size: 20px;
   border: none;
   cursor: pointer;
-}
 
-.search:focus {
-  outline: none;
-}
+  &:focus {
+    outline: none;
+  }
 
-.search::placeholder {
-  font-size: 24px;
-  text-align: center;
-  color: #ffffff;
-  opacity: 1;
+  &::placeholder {
+    font-size: 24px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 1;
+  }
 }
 
 /* Burger */
@@ -99,14 +95,14 @@ body {
     min-width: 40px;
     min-height: 6px;
     border-radius: 6px;
-  }
 
-  span:nth-child(1) {
-    top: 0;
-  }
+    &:nth-child(1) {
+      top: 0;
+    }
 
-  span:nth-child(3) {
-    bottom: 0;
+    &:nth-child(3) {
+      bottom: 0;
+    }
   }
 }
 
@@ -186,16 +182,15 @@ body {
 
       color: #fff;
       font-size: 20px;
-    }
 
-    picture {
-      img {
-        width: 16px;
+      picture {
+        img {
+          width: 16px;
+        }
       }
     }
   }
 }
-
 /* Footer */
 
 .footer {
@@ -232,7 +227,7 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   min-width: 280px;
   margin: 0 auto;
 

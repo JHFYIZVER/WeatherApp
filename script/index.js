@@ -43,30 +43,32 @@ function collectingInformation(weather) {
   windValue.textContent = `${weather.wind.speed} m/s`;
   humidityValue.textContent = `${weather.main.humidity}%`;
   pressureValue.textContent = `${weather.main.pressure}`;
-  // const date = new Date(weather.dt * 1000);
-  // const hours = date.getUTCHours();
-  // const minutes = date.getUTCMinutes();
+  const date = new Date(weather.dt * 1000);
+  const formateDate = date.toUTCString()
+  const hours = formateDate.getUTCHours();
+  const minutes = formateDate.getUTCMinutes();
 
-  // mainTime.textContent = `${hours}:${minutes}`;
+  mainTime.textContent = `${hours}:${minutes}`;
 }
 
 function changeImg(weather) {
-  if (weather.weather[0]["main"] === "Clouds") {
+  let weatherType = weather.weather[0]["main"];
+  if (weatherType === "Clouds") {
     mainIcon.innerHTML = `<img src="./img/cloud.svg" alt="icon-weather" width="170px" height="170px"/>`;
   }
-  if (weather.weather[0]["main"] === "Rain") {
+  if (weatherType === "Rain") {
     mainIcon.innerHTML = `<img src="./img/rain.svg" alt="icon-weather" width="170px" height="170px"/>`;
   }
-  if (weather.weather[0]["main"] === "Snow") {
+  if (weatherType === "Snow") {
     mainIcon.innerHTML = `<img src="./img/snow.svg" alt="icon-weather" width="170px" height="170px"/>`;
   }
-  if (weather.weather[0]["main"] === "Thunderstorm") {
+  if (weatherType === "Thunderstorm") {
     mainIcon.innerHTML = `<img src="./img/thunderstorm.svg" alt="icon-weather" width="170px" height="170px"/>`;
   }
-  if (weather.weather[0]["main"] === "Clear") {
+  if (weatherType === "Clear") {
     mainIcon.innerHTML = `<img src="./img/sunny.svg" alt="icon-weather" width="170px" height="170px"/>`;
   }
-  if (weather.weather[0]["main"] === "Mist") {
+  if (weatherType === "Mist") {
     mainIcon.innerHTML = `<img src="./img/fog.svg" alt="icon-weather" width="170px" height="170px"/>`;
   }
 }
