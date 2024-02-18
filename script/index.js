@@ -1,7 +1,7 @@
 "use strict";
 let mainCity = document.getElementById("mainCity");
 let mainDeg = document.getElementById("mainDeg");
-let mainTime = document.getElementById("time");
+let mainData = document.getElementById("data");
 let visibilityValue = document.getElementById("visibilityValue");
 let humidityValue = document.getElementById("humidityValue");
 let windValue = document.getElementById("windValue");
@@ -11,6 +11,31 @@ const weatherApi = {
   key: "6e1d40cc3a896e82cdbc90ce68419cc6",
   baseUrl: `https://api.openweathermap.org/data/2.5/weather`,
 };
+
+const days = [
+  "Воскресенье",
+  "Понедельник",
+  "Вторник",
+  "Среда",
+  "Четверг",
+  "Пятница",
+  "Суббота",
+];
+
+const mounth = [
+  "Января",
+  "Февраля",
+  "Марта",
+  "Апреля",
+  "Мая",
+  "Июня",
+  "Июля",
+  "Августа",
+  "Сентября",
+  "Октября",
+  "Ноября",
+  "Декабря",
+];
 
 let cityValue = document.getElementById("searchCity");
 
@@ -44,11 +69,10 @@ function collectingInformation(weather) {
   humidityValue.textContent = `${weather.main.humidity}%`;
   pressureValue.textContent = `${weather.main.pressure}`;
   const date = new Date(weather.dt * 1000);
-  const formateDate = date.toUTCString()
-  const hours = formateDate.getUTCHours();
-  const minutes = formateDate.getUTCMinutes();
-
-  mainTime.textContent = `${hours}:${minutes}`;
+  let numDate = date.getDate();
+  let month = mounth[date.getMonth()];
+  let day = days[date.getDay()];
+  mainData.textContent = `${numDate} ${month} (${day})`;
 }
 
 function changeImg(weather) {
