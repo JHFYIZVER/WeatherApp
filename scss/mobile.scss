@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: Gilroy-Regular;
-  src: url(../font/Gilroy-Regular.woff2) format('woff2');
+  src: url(../font/Gilroy-Regular.woff2) format("woff2");
 }
 
 /* Container */
@@ -21,6 +21,35 @@
   background-color: #78ac96;
   background-size: cover;
   background-repeat: no-repeat;
+
+  .modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #a3a3a3;
+    z-index: 10;
+
+    .modal-content {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+      z-index: 11;
+      width: 600px;
+      height: 400px;
+      background: #78ac96;
+      color: #fff;
+    }
+  }
 }
 
 .background {

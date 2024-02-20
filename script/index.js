@@ -1,12 +1,12 @@
 "use strict";
-let mainCity = document.getElementById("mainCity");
-let mainDeg = document.getElementById("mainDeg");
-let mainData = document.getElementById("data");
-let visibilityValue = document.getElementById("visibilityValue");
-let humidityValue = document.getElementById("humidityValue");
-let windValue = document.getElementById("windValue");
-let pressureValue = document.getElementById("pressureValue");
-let mainIcon = document.getElementById("mainIcon");
+let mainCity = document.querySelector("#mainCity");
+let mainDeg = document.querySelector("#mainDeg");
+let mainData = document.querySelector("#data");
+let visibilityValue = document.querySelector("#visibilityValue");
+let humidityValue = document.querySelector("#humidityValue");
+let windValue = document.querySelector("#windValue");
+let pressureValue = document.querySelector("#pressureValue");
+let mainIcon = document.querySelector("#mainIcon");
 const weatherApi = {
   key: "6e1d40cc3a896e82cdbc90ce68419cc6",
   baseUrl: `https://api.openweathermap.org/data/2.5/weather`,
@@ -37,7 +37,7 @@ const mounth = [
   "Декабря",
 ];
 
-let cityValue = document.getElementById("searchCity");
+let cityValue = document.querySelector("#searchCity");
 
 cityValue.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
@@ -58,7 +58,22 @@ function weatherInfo(city) {
       changeImg(weather);
       console.log(weather);
     })
-    .catch(() => {});
+    .catch((error) => {
+      openModalError(error);
+      resetInput(error);
+    });
+}
+
+function openModalError() {
+  let modal = document.querySelector(".modal");
+  modal.style.display = "flex";
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 3000);
+}
+
+function resetInput() {
+  cityValue.value = "";
 }
 
 function collectingInformation(weather) {
@@ -69,30 +84,37 @@ function collectingInformation(weather) {
   humidityValue.textContent = `${weather.main.humidity}%`;
   pressureValue.textContent = `${weather.main.pressure}`;
   const date = new Date(weather.dt * 1000);
-  let numDate = date.getDate();
-  let month = mounth[date.getMonth()];
-  let day = days[date.getDay()];
+  const numDate = date.getDate();
+  const month = mounth[date.getMonth()];
+  const day = days[date.getDay()];
   mainData.textContent = `${numDate} ${month} (${day})`;
+  const cityCod = weather.cod;
+
+  if (cityCod == "404") {
+    openModalError();
+  }
 }
 
 function changeImg(weather) {
   let weatherType = weather.weather[0]["main"];
-  if (weatherType === "Clouds") {
-    mainIcon.innerHTML = `<img src="./img/cloud.svg" alt="icon-weather" width="170px" height="170px"/>`;
-  }
-  if (weatherType === "Rain") {
-    mainIcon.innerHTML = `<img src="./img/rain.svg" alt="icon-weather" width="170px" height="170px"/>`;
-  }
-  if (weatherType === "Snow") {
-    mainIcon.innerHTML = `<img src="./img/snow.svg" alt="icon-weather" width="170px" height="170px"/>`;
-  }
-  if (weatherType === "Thunderstorm") {
-    mainIcon.innerHTML = `<img src="./img/thunderstorm.svg" alt="icon-weather" width="170px" height="170px"/>`;
-  }
-  if (weatherType === "Clear") {
-    mainIcon.innerHTML = `<img src="./img/sunny.svg" alt="icon-weather" width="170px" height="170px"/>`;
-  }
-  if (weatherType === "Mist") {
-    mainIcon.innerHTML = `<img src="./img/fog.svg" alt="icon-weather" width="170px" height="170px"/>`;
+  switch (weatherType) {
+    case "Clouds":
+      mainIcon.innerHTML = `<img src="./img/cloud.svg" alt="icon-weather" width="170px" height="170px"/>`;
+      break;
+    case "Rain":
+      mainIcon.innerHTML = `<img src="./img/rain.svg" alt="icon-weather" width="170px" height="170px"/>`;
+      break;
+    case "Snow":
+      mainIcon.innerHTML = `<img src="./img/snow.svg" alt="icon-weather" width="170px" height="170px"/>`;
+      break;
+    case "Thunderstorm":
+      mainIcon.innerHTML = `<img src="./img/thunderstorm.svg" alt="icon-weather" width="170px" height="170px"/>`;
+      break;
+    case "Clear":
+      mainIcon.innerHTML = `<img src="./img/sunny.svg" alt="icon-weather" width="170px" height="170px"/>;`;
+      break;
+    case "Mist":
+      mainIcon.innerHTML = `<img src="./img/fog.svg" alt="icon-weather" width="170px" height="170px"/>`;
+      break;
   }
 }
